@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Childrens_sanatorium", "Childrens_sanatorium\Childrens_sanatorium.csproj", "{88007840-B7BD-4FFD-8ACC-8E1EA64F82B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88007840-B7BD-4FFD-8ACC-8E1EA64F82B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88007840-B7BD-4FFD-8ACC-8E1EA64F82B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88007840-B7BD-4FFD-8ACC-8E1EA64F82B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88007840-B7BD-4FFD-8ACC-8E1EA64F82B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2DB7C186-F6A1-4E4E-9E3B-8EB2A6F60C06}
+	EndGlobalSection
+EndGlobal

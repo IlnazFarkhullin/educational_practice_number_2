@@ -1,0 +1,52 @@
+﻿<Window x:Class="Childrens_sanatorium.Pages.Admin.Users_information"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Childrens_sanatorium.Pages.Admin"
+        mc:Ignorable="d"
+        Title="{Binding Surname}"   Height="450" Width="800"
+         ResizeMode="NoResize">
+    <Grid Background="Azure">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="94*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="519.2"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0"  x:Name="panelHeader" VerticalAlignment="Top" Height="40" Background="#FF0F4E7A" Margin="0,0,-274,0" >
+            <TextBlock Text="{Binding Surname}"  HorizontalAlignment="Center"  VerticalAlignment="Center" Foreground="White"/>
+
+            <Button Margin="10,0,0,2" HorizontalAlignment="Left"  Background="White" Foreground="Aqua" FontSize="18" Width="29"  Height="29" x:Name="print" Click="print_Click">
+                <Image Source="/Image/print.png" RenderTransformOrigin="-5.465,0.352"/>
+            </Button>
+            <Button Margin="40,0,0,0" HorizontalAlignment="Left"  Background="White" Foreground="Aqua" FontSize="18" Width="29"  Height="29" x:Name="Edit" Click="Edit_Click">
+                <Image Source="/Image/Save.png" RenderTransformOrigin="-5.465,0.352"/>
+            </Button>
+            <Button Margin="75,0,0,0" HorizontalAlignment="Left"  Background="White" Foreground="Aqua" FontSize="18" Width="29"  Height="29" x:Name="add_image" Click="add_image_Click">
+                <Image Source="/Image/add_image.png" RenderTransformOrigin="-5.465,0.352"/>
+            </Button>
+        </Grid>
+        <StackPanel Orientation="Horizontal" x:Name="info"  HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Height="344" Margin="5">
+            <StackPanel >
+                <TextBlock Text="Фамиля:" />
+                <Label FontSize="15"  Content="{Binding Surname}" x:Name="txt_surname" Width="200" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+                <TextBlock Text="Имя:"/>
+                <Label  FontSize="15" Content="{Binding Name}" x:Name="txt_name"  Width="200" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+                <TextBlock Text="Отчество:"/>
+                <Label FontSize="15"  Content="{Binding  Patronymic}"  x:Name="txt_lname"  Width="200" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+                <TextBlock Text="Должность:"/>
+                <Label   FontSize="15" Content="{Binding Position. Name_position }"  x:Name="birthday"  Width="200" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+            </StackPanel>
+            <StackPanel>
+                <Border BorderBrush="Gray" BorderThickness="2" CornerRadius="5,5,5,5" HorizontalAlignment="Center" Margin="5" MinWidth="150">
+                    <Image Source="{Binding }" x:Name="IPicture" MaxHeight="200" MinHeight="150" Margin="5"/>
+                </Border>
+                
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

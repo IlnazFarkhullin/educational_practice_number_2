@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Childrens_sanatoriumModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Branches">
+    <Key>
+      <PropertyRef Name="id_branches" />
+    </Key>
+    <Property Name="id_branches" Type="Int32" Nullable="false" />
+    <Property Name="Name_branches" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_employee" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Branches_Employee" FromRole="Branches" ToRole="Employee" />
+    <NavigationProperty Name="Children" Relationship="Self.FK_Children_Branches" FromRole="Branches" ToRole="Children" />
+    <NavigationProperty Name="Ward" Relationship="Self.FK_Ward_Branches" FromRole="Branches" ToRole="Ward" />
+  </EntityType>
+  <EntityType Name="Children">
+    <Key>
+      <PropertyRef Name="id_children" />
+    </Key>
+    <Property Name="id_children" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="id_diagnosis" Type="Int32" Nullable="false" />
+    <Property Name="id_braches" Type="Int32" Nullable="false" />
+    <Property Name="id_ward" Type="Int32" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="id_emploee" Type="Int32" Nullable="false" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Date_of_receipt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Branches" Relationship="Self.FK_Children_Branches" FromRole="Children" ToRole="Branches" />
+    <NavigationProperty Name="Diagnosis" Relationship="Self.FK_Children_Diagnosis" FromRole="Children" ToRole="Diagnosis" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Children_Employee" FromRole="Children" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Diagnosis">
+    <Key>
+      <PropertyRef Name="id_diagnosis" />
+    </Key>
+    <Property Name="id_diagnosis" Type="Int32" Nullable="false" />
+    <Property Name="name_diagnosis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Children" Relationship="Self.FK_Children_Diagnosis" FromRole="Diagnosis" ToRole="Children" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="id_employee" />
+    </Key>
+    <Property Name="id_employee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="id_user" Type="Int32" />
+    <Property Name="id_position" Type="Int32" Nullable="false" />
+    <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Branches" Relationship="Self.FK_Branches_Employee" FromRole="Employee" ToRole="Branches" />
+    <NavigationProperty Name="Children" Relationship="Self.FK_Children_Employee" FromRole="Employee" ToRole="Children" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_Employee_Position" FromRole="Employee" ToRole="Position" />
+    <NavigationProperty Name="user" Relationship="Self.FK_Employee_user" FromRole="Employee" ToRole="user" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="id_position" />
+    </Key>
+    <Property Name="id_position" Type="Int32" Nullable="false" />
+    <Property Name="Name_position" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Position" FromRole="Position" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="login" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_user" FromRole="user" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Ward">
+    <Key>
+      <PropertyRef Name="id_ward" />
+    </Key>
+    <Property Name="id_ward" Type="Int32" Nullable="false" />
+    <Property Name="ward_number" Type="Int32" Nullable="false" />
+    <Property Name="id_branches" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Branches" Relationship="Self.FK_Ward_Branches" FromRole="Ward" ToRole="Branches" />
+  </EntityType>
+  <Association Name="FK_Branches_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Branches" Type="Self.Branches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="id_employee" />
+      </Principal>
+      <Dependent Role="Branches">
+        <PropertyRef Name="id_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Children_Branches">
+    <End Role="Branches" Type="Self.Branches" Multiplicity="1" />
+    <End Role="Children" Type="Self.Children" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branches">
+        <PropertyRef Name="id_branches" />
+      </Principal>
+      <Dependent Role="Children">
+        <PropertyRef Name="id_braches" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ward_Branches">
+    <End Role="Branches" Type="Self.Branches" Multiplicity="1" />
+    <End Role="Ward" Type="Self.Ward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branches">
+        <PropertyRef Name="id_branches" />
+      </Principal>
+      <Dependent Role="Ward">
+        <PropertyRef Name="id_branches" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Children_Diagnosis">
+    <End Role="Diagnosis" Type="Self.Diagnosis" Multiplicity="1" />
+    <End Role="Children" Type="Self.Children" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diagnosis">
+        <PropertyRef Name="id_diagnosis" />
+      </Principal>
+      <Dependent Role="Children">
+        <PropertyRef Name="id_diagnosis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Children_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Children" Type="Self.Children" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="id_employee" />
+      </Principal>
+      <Dependent Role="Children">
+        <PropertyRef Name="id_emploee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="id_position" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="id_position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_user">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Childrens_sanatoriumEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Branches" EntityType="Self.Branches" />
+    <EntitySet Name="Children" EntityType="Self.Children" />
+    <EntitySet Name="Diagnosis" EntityType="Self.Diagnosis" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" />
+    <EntitySet Name="Position" EntityType="Self.Position" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="user" EntityType="Self.user" />
+    <EntitySet Name="Ward" EntityType="Self.Ward" />
+    <AssociationSet Name="FK_Branches_Employee" Association="Self.FK_Branches_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Branches" EntitySet="Branches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Children_Branches" Association="Self.FK_Children_Branches">
+      <End Role="Branches" EntitySet="Branches" />
+      <End Role="Children" EntitySet="Children" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ward_Branches" Association="Self.FK_Ward_Branches">
+      <End Role="Branches" EntitySet="Branches" />
+      <End Role="Ward" EntitySet="Ward" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Children_Diagnosis" Association="Self.FK_Children_Diagnosis">
+      <End Role="Diagnosis" EntitySet="Diagnosis" />
+      <End Role="Children" EntitySet="Children" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Children_Employee" Association="Self.FK_Children_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Children" EntitySet="Children" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Position" Association="Self.FK_Employee_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_user" Association="Self.FK_Employee_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

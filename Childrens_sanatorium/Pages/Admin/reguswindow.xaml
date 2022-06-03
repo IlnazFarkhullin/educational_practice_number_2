@@ -1,0 +1,47 @@
+﻿<Window x:Class="Childrens_sanatorium.Pages.Admin.reguswindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Childrens_sanatorium.Pages.Admin"
+        mc:Ignorable="d"
+        Title="Регистрация пользователя" Height="550" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="645*"/>
+            <ColumnDefinition Width="149*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="414*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Margin="210,1.2,78.8,0.4" Width="356">
+            <Border BorderBrush="Gray" BorderThickness="2" CornerRadius="5,5,5,5" HorizontalAlignment="Center" Margin="5" MinWidth="150">
+                <Image Source="{Binding }" x:Name="IPicture" MaxHeight="200" MinHeight="150" Margin="5"/>
+            </Border>
+            <Label Content="Фамилия:" Margin="5"/>
+            <TextBlock x:Name="txt_surname" Margin="5" Text="{Binding Surname}"/>
+            <Label Content="Имя:" Margin="5"/>
+            <TextBlock x:Name="txt_name" Margin="5" Text="{Binding Name}"/>
+            <Label Content="Отчество:" Margin="5"/>
+            <TextBlock x:Name="txt_lname" Margin="5" Text="{Binding Patronymic}"/>
+            <Label Content="Должность:" Margin="5"/>
+            <TextBlock x:Name="txt_position" Margin="5" Text="{Binding Position.Name_position}"/>
+            <Label Content="Пароль" Margin="5"/>
+            <TextBlock x:Name="txt_password" Margin="5"/>
+            <Label Content="Логин:" Margin="5"/>
+            <TextBlock x:Name="txt_login" Margin="5"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <Button x:Name="generator" Click="generator_Click"  Margin="0,20"  Foreground="Aqua" FontSize="18" Width="50"  Height="50" IsEnabled="True">
+                <Image Source="/Image/gen_paasword.png" />
+            </Button>
+            <Button x:Name="usreg" Click="usreg_Click" Content="Зарегистрировать" Height="30" Width="auto" Margin="0,0,0,10" />
+            <Button x:Name="addImage" Click="addImage_Click" Content="Добавить фотографиию " Height="30" Width="auto"/>
+        </StackPanel>
+    </Grid>
+</Window>

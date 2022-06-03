@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Childrens_sanatoriumModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Branches">
+    <Key>
+      <PropertyRef Name="id_branches" />
+    </Key>
+    <Property Name="id_branches" Type="int" Nullable="false" />
+    <Property Name="Name_branches" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="id_position" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Login_data">
+    <Key>
+      <PropertyRef Name="id_login_date" />
+    </Key>
+    <Property Name="id_login_date" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_user" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="id_position" />
+    </Key>
+    <Property Name="id_position" Type="int" Nullable="false" />
+    <Property Name="Name_position" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="id_Position" Type="int" Nullable="false" />
+    <Property Name="image" Type="text" />
+  </EntityType>
+  <EntityType Name="Ward">
+    <Key>
+      <PropertyRef Name="id_ward" />
+    </Key>
+    <Property Name="id_ward" Type="int" Nullable="false" />
+    <Property Name="ward_number" Type="int" Nullable="false" />
+    <Property Name="id_branches" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Branches_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="Branches" Type="Self.Branches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="id_position" />
+      </Principal>
+      <Dependent Role="Branches">
+        <PropertyRef Name="id_position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Login_data_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="Login_data" Type="Self.Login_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="Login_data">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="id_position" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="id_Position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ward_Branches">
+    <End Role="Branches" Type="Self.Branches" Multiplicity="1" />
+    <End Role="Ward" Type="Self.Ward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branches">
+        <PropertyRef Name="id_branches" />
+      </Principal>
+      <Dependent Role="Ward">
+        <PropertyRef Name="id_branches" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище Childrens_sanatoriumModelContainer">
+    <EntitySet Name="Branches" EntityType="Self.Branches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login_data" EntityType="Self.Login_data" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ward" EntityType="Self.Ward" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Branches_Position" Association="Self.FK_Branches_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Branches" EntitySet="Branches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Login_data_user" Association="Self.FK_Login_data_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="Login_data" EntitySet="Login_data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_Position" Association="Self.FK_user_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ward_Branches" Association="Self.FK_Ward_Branches">
+      <End Role="Branches" EntitySet="Branches" />
+      <End Role="Ward" EntitySet="Ward" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

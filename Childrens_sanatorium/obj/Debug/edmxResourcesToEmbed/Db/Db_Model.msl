@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Childrens_sanatoriumModelContainer" CdmEntityContainer="Childrens_sanatoriumEntities">
+    <EntitySetMapping Name="Branches">
+      <EntityTypeMapping TypeName="Childrens_sanatoriumModel.Branches">
+        <MappingFragment StoreEntitySet="Branches">
+          <ScalarProperty Name="id_branches" ColumnName="id_branches" />
+          <ScalarProperty Name="Name_branches" ColumnName="Name_branches" />
+          <ScalarProperty Name="id_position" ColumnName="id_position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Login_data">
+      <EntityTypeMapping TypeName="Childrens_sanatoriumModel.Login_data">
+        <MappingFragment StoreEntitySet="Login_data">
+          <ScalarProperty Name="id_login_date" ColumnName="id_login_date" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Position">
+      <EntityTypeMapping TypeName="Childrens_sanatoriumModel.Position">
+        <MappingFragment StoreEntitySet="Position">
+          <ScalarProperty Name="id_position" ColumnName="id_position" />
+          <ScalarProperty Name="Name_position" ColumnName="Name_position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="Childrens_sanatoriumModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="id_Position" ColumnName="id_Position" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ward">
+      <EntityTypeMapping TypeName="Childrens_sanatoriumModel.Ward">
+        <MappingFragment StoreEntitySet="Ward">
+          <ScalarProperty Name="id_ward" ColumnName="id_ward" />
+          <ScalarProperty Name="ward_number" ColumnName="ward_number" />
+          <ScalarProperty Name="id_branches" ColumnName="id_branches" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

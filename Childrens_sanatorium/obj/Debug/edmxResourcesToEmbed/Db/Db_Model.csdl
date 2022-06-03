@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Childrens_sanatoriumModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Branches">
+    <Key>
+      <PropertyRef Name="id_branches" />
+    </Key>
+    <Property Name="id_branches" Type="Int32" Nullable="false" />
+    <Property Name="Name_branches" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_position" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_Branches_Position" FromRole="Branches" ToRole="Position" />
+    <NavigationProperty Name="Ward" Relationship="Self.FK_Ward_Branches" FromRole="Branches" ToRole="Ward" />
+  </EntityType>
+  <EntityType Name="Login_data">
+    <Key>
+      <PropertyRef Name="id_login_date" />
+    </Key>
+    <Property Name="id_login_date" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_user" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_Login_data_user" FromRole="Login_data" ToRole="user" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="id_position" />
+    </Key>
+    <Property Name="id_position" Type="Int32" Nullable="false" />
+    <Property Name="Name_position" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Branches" Relationship="Self.FK_Branches_Position" FromRole="Position" ToRole="Branches" />
+    <NavigationProperty Name="user" Relationship="Self.FK_user_Position" FromRole="Position" ToRole="user" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_Position" Type="Int32" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Login_data" Relationship="Self.FK_Login_data_user" FromRole="user" ToRole="Login_data" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_user_Position" FromRole="user" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="Ward">
+    <Key>
+      <PropertyRef Name="id_ward" />
+    </Key>
+    <Property Name="id_ward" Type="Int32" Nullable="false" />
+    <Property Name="ward_number" Type="Int32" Nullable="false" />
+    <Property Name="id_branches" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Branches" Relationship="Self.FK_Ward_Branches" FromRole="Ward" ToRole="Branches" />
+  </EntityType>
+  <Association Name="FK_Branches_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="Branches" Type="Self.Branches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="id_position" />
+      </Principal>
+      <Dependent Role="Branches">
+        <PropertyRef Name="id_position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ward_Branches">
+    <End Role="Branches" Type="Self.Branches" Multiplicity="1" />
+    <End Role="Ward" Type="Self.Ward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branches">
+        <PropertyRef Name="id_branches" />
+      </Principal>
+      <Dependent Role="Ward">
+        <PropertyRef Name="id_branches" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Login_data_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="Login_data" Type="Self.Login_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="Login_data">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="id_position" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="id_Position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Childrens_sanatoriumEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Branches" EntityType="Self.Branches" />
+    <EntitySet Name="Login_data" EntityType="Self.Login_data" />
+    <EntitySet Name="Position" EntityType="Self.Position" />
+    <EntitySet Name="user" EntityType="Self.user" />
+    <EntitySet Name="Ward" EntityType="Self.Ward" />
+    <AssociationSet Name="FK_Branches_Position" Association="Self.FK_Branches_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Branches" EntitySet="Branches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ward_Branches" Association="Self.FK_Ward_Branches">
+      <End Role="Branches" EntitySet="Branches" />
+      <End Role="Ward" EntitySet="Ward" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Login_data_user" Association="Self.FK_Login_data_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="Login_data" EntitySet="Login_data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_Position" Association="Self.FK_user_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

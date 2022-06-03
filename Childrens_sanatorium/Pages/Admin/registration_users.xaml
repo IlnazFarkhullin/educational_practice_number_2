@@ -1,0 +1,23 @@
+﻿<Window x:Class="Childrens_sanatorium.Pages.Admin.registration_users"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Childrens_sanatorium.Pages.Admin"
+        mc:Ignorable="d"
+        Title="Регистрация пользователя" Height="450" Width="300">
+    <Grid >
+        <StackPanel>
+            <ListView HorizontalAlignment="Center"  x:Name="new_user" SelectionChanged="new_user_SelectionChanged" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Фамилия" DisplayMemberBinding ="{Binding Surname}"  Width="auto"/>
+                        <GridViewColumn Header="Имя" DisplayMemberBinding ="{Binding Name}"  Width="auto"/>
+                        <GridViewColumn Header="Отчество" DisplayMemberBinding ="{Binding Patronymic}"  Width="auto"/>
+                        <GridViewColumn Header="Должность" DisplayMemberBinding ="{Binding Position.Name_position}"  Width="auto"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Window>

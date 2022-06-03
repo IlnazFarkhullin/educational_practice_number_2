@@ -1,0 +1,45 @@
+﻿<Page x:Class="Childrens_sanatorium.Pages.Admin.Admin_main_page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Childrens_sanatorium.Pages.Admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Admin_main_page">
+
+    <Grid>
+        <Grid x:Name="pahel_header" VerticalAlignment="Top" Height="50"/>
+        <Grid x:Name="sidePanel" Background="Bisque" HorizontalAlignment="Left" Width="150">
+            <StackPanel>
+                <ListView   ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontFamily="Century Gothic" FontSize="12" Foreground="White" BorderBrush="Transparent" Background="Transparent">
+                    <ListViewItem Selected="admin_page_Selected" x:Name="admin_page" Height="30">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Image/progg.png" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Foreground="Black" Margin="10,0,0,0" Text="Моя страница" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Selected="users_Selected" x:Name="users" Height="30">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Image/User.png" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Foreground="Black" Margin="10,0,0,0" Text="Пользователи" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Selected="emploee_Selected" x:Name="emploee" Height="30">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Image/staff.png" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Foreground="Black" Margin="10,0,0,0" Text="Сотрудники" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Selected="Exit_Selected" x:Name="Exit" Height="30">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Image/Exit.png" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Foreground="Black" Margin="10,0,0,0" Text="Выйти" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <Frame x:Name="Menu" Background="Azure" Margin="155,0,10,-0.4"  NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Page>
