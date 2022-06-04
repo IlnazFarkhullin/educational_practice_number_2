@@ -19,9 +19,9 @@ namespace Childrens_sanatorium.Pages.Admin
 {
     public partial class Users_information : Window
     {
-        user post_user;
+        Employee post_user;
         
-        public Users_information(user us)
+        public Users_information(Employee us)
         {
             InitializeComponent();
             post_user = us;
@@ -39,31 +39,31 @@ namespace Childrens_sanatorium.Pages.Admin
 
         private void add_image_Click(object sender, RoutedEventArgs e)
         {
-            //OpenFileDialog openFileDialog = new OpenFileDialog();
-            //openFileDialog.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
-            //if (openFileDialog.ShowDialog().GetValueOrDefault())
-            //{
-            //    post_user.image = File.ReadAllBytes(openFileDialog.FileName);
-            //    MemoryStream byteStream = new MemoryStream(post_user.image);
-            //    BitmapImage image = new BitmapImage();
-            //    image.BeginInit();
-            //    image.StreamSource = byteStream;
-            //    image.EndInit();
-            //    IPicture.Source = image;
-            //}
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+            if (openFileDialog.ShowDialog().GetValueOrDefault())
+            {
+                post_user.image = File.ReadAllBytes(openFileDialog.FileName);
+                MemoryStream byteStream = new MemoryStream(post_user.image);
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.StreamSource = byteStream;
+                image.EndInit();
+                IPicture.Source = image;
+            }
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            //var a = Db.connect.childrens_Sanatorium.user.Where(z => z.id_user == post_user.id_user).FirstOrDefault();
-            //MemoryStream memory = new MemoryStream(post_user.image);
-            //BitmapImage img = new BitmapImage();
-            //img.BeginInit();
-            //img.StreamSource = memory;
-            //img.EndInit();
-            //IPicture.Source= img;
-            //Db.connect.childrens_Sanatorium.SaveChanges();
-            //MessageBox.Show("Изменения сохранены");
+            var a = Db.connect.childrens_Sanatorium.Employee.Where(z => z.id_user == post_user.id_user).FirstOrDefault();
+            MemoryStream memory = new MemoryStream(post_user.image);
+            BitmapImage img = new BitmapImage();
+            img.BeginInit();
+            img.StreamSource = memory;
+            img.EndInit();
+            IPicture.Source = img;
+            Db.connect.childrens_Sanatorium.SaveChanges();
+            MessageBox.Show("Изменения сохранены");
         }
     }
 }

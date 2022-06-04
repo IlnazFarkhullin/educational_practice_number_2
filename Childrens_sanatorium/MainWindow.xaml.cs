@@ -21,7 +21,9 @@ namespace Childrens_sanatorium
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static Db.Employee user;
+        public static Db.user user;
+        public static Db.Employee emp;
+
         public MainWindow()
         {
             InitializeComponent();

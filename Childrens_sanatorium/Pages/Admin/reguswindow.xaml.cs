@@ -17,13 +17,11 @@ using Microsoft.Win32;
 
 namespace Childrens_sanatorium.Pages.Admin
 {
-    /// <summary>
-    /// Логика взаимодействия для reguswindow.xaml
-    /// </summary>
+   
     public partial class reguswindow : Window
     {
         Db.Employee newus;
-        Db.user newuser = new Db.user();
+        Db.user newuser = new user();
         public reguswindow(Employee us)
         {
             InitializeComponent();
@@ -71,28 +69,26 @@ namespace Childrens_sanatorium.Pages.Admin
         {
             if (txt_password.Text != null && txt_login.Text != null)
             {
-                 var a = connect.childrens_Sanatorium.user.FirstOrDefault(); //Where(z => z. == txt_surname.Text )
-                if (a == null)
+                var a = connect.childrens_Sanatorium.user;  //Where(z => z. == txt_surname.Text )
+                if (a != null)
                 {
+                   
                     Db.user usera = new user()
                     {
 
-                        //id_Position = 2,
-                        //Surname = txt_surname.Text,
-                        //Name = txt_name.Text,
-                        //Patronymic = txt_lname.Text,
+                        
                         login = txt_login.Text,
                         password = txt_password.Text
                     
                     
                     };
                     Db.connect.childrens_Sanatorium.user.Add(usera);
+                    var r = connect.childrens_Sanatorium.Employee.Where( z => z.id_user == z.id_user);
                     Db.connect.childrens_Sanatorium.SaveChanges();
-                    //MessageBox.Show($"Новый пользователь {usera.Surname} добавлен.", "Регистрация пациента", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show($"Новый пользователь {newus.Surname} добавлен.", "Регистрация пациента", MessageBoxButton.OK, MessageBoxImage.Information);
             
                 }
                 else
-            
                 {
                     MessageBox.Show("Такой пользователь уже зарегистрирован", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
@@ -106,18 +102,18 @@ namespace Childrens_sanatorium.Pages.Admin
 
         private void addImage_Click(object sender, RoutedEventArgs e)
         {
-            //OpenFileDialog openFileDialog = new OpenFileDialog();
-            //openFileDialog.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
-            //if (openFileDialog.ShowDialog().GetValueOrDefault())
-            //{
-            //    newuser.image = File.ReadAllBytes(openFileDialog.FileName);
-            //    MemoryStream byteStream = new MemoryStream(newuser.image);
-            //    BitmapImage image = new BitmapImage();
-            //    image.BeginInit();
-            //    image.StreamSource = byteStream;
-            //    image.EndInit();
-            //    IPicture.Source = image;
-            //}
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+            if (openFileDialog.ShowDialog().GetValueOrDefault())
+            {
+                newus.image = File.ReadAllBytes(openFileDialog.FileName);
+                MemoryStream byteStream = new MemoryStream(newus.image);
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.StreamSource = byteStream;
+                image.EndInit();
+                IPicture.Source = image;
+            }
         }
     }
     }

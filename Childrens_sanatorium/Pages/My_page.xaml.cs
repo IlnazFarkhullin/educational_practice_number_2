@@ -26,6 +26,8 @@ namespace Childrens_sanatorium.Pages
         {
             InitializeComponent();
             this.DataContext = MainWindow.user;
+            this.DataContext = MainWindow.emp;
+
         }
     }
 }

@@ -51,13 +51,15 @@ namespace Childrens_sanatorium.Pages
                     if (a.id_user == 1)
                     {
                         MessageBox.Show($"Добро пожаловать  {d.Name} {d.Patronymic}", "Вход в личные кабинет", MessageBoxButton.OK, MessageBoxImage.Information);
-                        MainWindow.user = d; //показывает того кто авторизовался. На той странице используется this.DataContext..........
+                        MainWindow.user = a; //показывает того кто авторизовался. На той странице используется this.DataContext..........
+                        MainWindow.emp = d;
                         NavigationService.Navigate(new Admin_main_page());
                     }
                     else if(a.id_user == a.id_user)
                     {
                         MessageBox.Show($"Добро пожаловать  {d.Name} {d.Patronymic}", "Вход в личные кабинет", MessageBoxButton.OK, MessageBoxImage.Information);
-                        MainWindow.user = d;
+                        MainWindow.user = a;
+                        MainWindow.emp = d;
 
                         NavigationService.Navigate(new Main_page());
                     }

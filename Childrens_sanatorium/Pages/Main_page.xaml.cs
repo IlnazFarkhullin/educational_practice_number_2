@@ -25,8 +25,8 @@ namespace Childrens_sanatorium.Pages
         public Main_page()
         {
             InitializeComponent();
-            
-            if (MainWindow.user.id_position == 2)
+
+            if (MainWindow.user.id_user != 2)
             {
                 regestration.Visibility = Visibility.Collapsed;
             }

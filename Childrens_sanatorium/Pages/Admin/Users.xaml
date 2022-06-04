@@ -32,9 +32,9 @@
                 <ListView SelectionChanged="LV_users_SelectionChanged"  x:Name="LV_users" >
                     <ListView.View  >
                         <GridView>
-                            <GridViewColumn Header="Фамилия" DisplayMemberBinding ="{Binding Surname }"  Width="auto"/>
+                            <GridViewColumn Header="Фамилия" DisplayMemberBinding ="{Binding Surname}"  Width="auto"/>
                             <GridViewColumn Header="Имя" DisplayMemberBinding ="{Binding  Name}"  Width="auto"/>
-                            <GridViewColumn Header="Отчество" DisplayMemberBinding ="{Binding Patronymic }"  Width="auto"/>
+                            <GridViewColumn Header="Отчество" DisplayMemberBinding ="{Binding Patronymic}"  Width="auto"/>
                             <GridViewColumn Header="Должность" DisplayMemberBinding ="{Binding Position.Name_position}"  Width="auto"/>
                         </GridView>
                     </ListView.View>

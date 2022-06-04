@@ -23,7 +23,8 @@ namespace Childrens_sanatorium.Pages.Admin
         public Admin_page()
         {
             InitializeComponent();
-            this.DataContext = MainWindow.user;
+            //this.DataContext = MainWindow.user;
+            this.DataContext = MainWindow.emp;
         }
     }
 }
