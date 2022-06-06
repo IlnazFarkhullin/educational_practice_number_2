@@ -25,8 +25,7 @@ namespace Childrens_sanatorium.Pages.Admin
             InitializeComponent();
             emp = s;
             this.DataContext = emp;
-
-
+            
         }
 
         private void print_Click(object sender, RoutedEventArgs e)

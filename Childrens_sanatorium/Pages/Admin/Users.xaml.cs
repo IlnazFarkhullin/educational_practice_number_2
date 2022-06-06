@@ -25,12 +25,12 @@ namespace Childrens_sanatorium.Pages.Admin
         public Users()
         {
             InitializeComponent();
-            LV_users.ItemsSource = connect.childrens_Sanatorium.user.ToList();
+            LV_users.ItemsSource = connect.childrens_Sanatorium.Employee.Where(z => z.id_user != null).ToList();
         }
 
         private void serach_tb_TextChanged(object sender, TextChangedEventArgs e)
         {
-           LV_users.ItemsSource = connect.childrens_Sanatorium.Employee.ToList().Where(z => z.Surname.Contains(serach_tb.Text));//поиск о фамилии
+           LV_users.ItemsSource = connect.childrens_Sanatorium.Employee.ToList().Where(z => z.Surname.ToLower().Contains(serach_tb.Text));//поиск о фамилии
         }
 
         private void add_user_Click(object sender, RoutedEventArgs e)
@@ -49,7 +49,7 @@ namespace Childrens_sanatorium.Pages.Admin
 
         private void refrsh_Click(object sender, RoutedEventArgs e)
         {
-            LV_users.ItemsSource = connect.childrens_Sanatorium.user.ToList();
+            LV_users.ItemsSource = connect.childrens_Sanatorium.Employee.Where(z => z.id_user != null).ToList();
         }
     }
 }

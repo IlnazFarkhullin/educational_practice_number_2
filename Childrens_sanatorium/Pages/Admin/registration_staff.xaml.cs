@@ -62,7 +62,7 @@ namespace Childrens_sanatorium.Pages.Admin
                     staff.id_position = ((Db.Position)position.SelectedItem).id_position;
                     Db.connect.childrens_Sanatorium.Employee.Add(staff);
                     Db.connect.childrens_Sanatorium.SaveChanges();
-                    MessageBox.Show($"Новый сотрудник добавлен {staff.Surname} {staff.Name} {staff.Patronymic} добавлен.\n Занимаемая должность {staff.id_position}", "Регистрация пациента", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show($"Новый сотрудник добавлен {staff.Surname} {staff.Name} {staff.Patronymic} добавлен.\n Занимаемая должность {staff.Position.Name_position}", "Регистрация пациента", MessageBoxButton.OK, MessageBoxImage.Information);
                     clear();
                     Close();
                     

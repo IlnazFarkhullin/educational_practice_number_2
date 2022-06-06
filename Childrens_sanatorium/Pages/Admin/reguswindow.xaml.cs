@@ -69,7 +69,7 @@ namespace Childrens_sanatorium.Pages.Admin
         {
             if (txt_password.Text != null && txt_login.Text != null)
             {
-                var a = connect.childrens_Sanatorium.user;  //Where(z => z. == txt_surname.Text )
+                var a = connect.childrens_Sanatorium.Employee.Where(z => z.id_user == z.id_user).Where(c => c.Surname == txt_surname.Text).FirstOrDefault();
                 if (a != null)
                 {
                    
@@ -82,8 +82,8 @@ namespace Childrens_sanatorium.Pages.Admin
                     
                     
                     };
+                    newus.id_user = usera.id_user;//благодаря этой строке id_user записывается в таблицу Employee.....
                     Db.connect.childrens_Sanatorium.user.Add(usera);
-                    var r = connect.childrens_Sanatorium.Employee.Where( z => z.id_user == z.id_user);
                     Db.connect.childrens_Sanatorium.SaveChanges();
                     MessageBox.Show($"Новый пользователь {newus.Surname} добавлен.", "Регистрация пациента", MessageBoxButton.OK, MessageBoxImage.Information);
             

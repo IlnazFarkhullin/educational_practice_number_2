@@ -307,9 +307,6 @@
     <Resource Include="Image\refresh.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\excel.png" />
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>

@@ -42,7 +42,7 @@
             </StackPanel>
             <StackPanel>
                 <Border BorderBrush="Gray" BorderThickness="2" CornerRadius="5,5,5,5" HorizontalAlignment="Center" Margin="5" MinWidth="150">
-                    <Image Source="{Binding }" x:Name="IPicture" MaxHeight="200" MinHeight="150" Margin="5"/>
+                    <Image Source="{Binding image}" x:Name="IPicture" MaxHeight="200" MinHeight="150" Margin="5"/>
                 </Border>
                 
             </StackPanel>

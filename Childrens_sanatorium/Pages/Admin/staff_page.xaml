@@ -17,7 +17,7 @@
         </Grid>
         <StackPanel Grid.Row="1">
             <StackPanel Margin="0,0,0,10" VerticalAlignment="Top" Orientation="Horizontal">
-                <TextBox x:Name="serach_tb"  Width="200" Height="29" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox x:Name="serach_tb" TextChanged="serach_tb_TextChanged" Width="200" Height="29" HorizontalAlignment="Left" VerticalAlignment="Top" />
                 <Button  Margin="0" Background="Black" Foreground="Aqua" FontSize="18" Width="29"  Height="29" IsEnabled="False">
                     <Image Source="/Image/Search.png"/>
                 </Button>

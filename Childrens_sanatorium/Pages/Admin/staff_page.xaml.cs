@@ -96,6 +96,9 @@ namespace Childrens_sanatorium.Pages.Admin
             Refresh();
         }
 
-       
+        private void serach_tb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            LV_staff.ItemsSource = connect.childrens_Sanatorium.Children.Where(z => z.Surname.ToLower().Contains(serach_tb.Text)).ToList();
+        }
     }
 }
