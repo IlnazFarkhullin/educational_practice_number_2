@@ -160,17 +160,17 @@ namespace Childrens_sanatorium.Pages
             }
         }
 
-        private void branches_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var x = branches.SelectedItem as Db.Branches;
-            if (x.id_branches == 1)
-            {
-                ward.ItemsSource = connect.childrens_Sanatorium.Ward.Where(z => z.id_ward == 1).ToList();
-            }
-            else  
-            {
-                ward.ItemsSource = connect.childrens_Sanatorium.Ward.Where(z => z.id_ward == 2).ToList();
-            }
-        }
+        //private void branches_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    var x = branches.SelectedItem as Db.Branches;
+        //    if (x.id_branches == 1)
+        //    {
+        //        ward.ItemsSource = connect.childrens_Sanatorium.Ward.Where(z => z.id_ward == 1).ToList();
+        //    }
+        //    else  
+        //    {
+        //        ward.ItemsSource = connect.childrens_Sanatorium.Ward.Where(z => z.id_ward == 2).ToList();
+        //    }
+        //}
     }
 }

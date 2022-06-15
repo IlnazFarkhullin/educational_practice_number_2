@@ -30,7 +30,7 @@ namespace Childrens_sanatorium.Pages.Admin
 
         private void serach_tb_TextChanged(object sender, TextChangedEventArgs e)
         {
-           LV_users.ItemsSource = connect.childrens_Sanatorium.Employee.ToList().Where(z => z.Surname.ToLower().Contains(serach_tb.Text));//поиск о фамилии
+           LV_users.ItemsSource = connect.childrens_Sanatorium.Employee.Where(z => z.Surname.ToLower().Contains(serach_tb.Text)).Where(s => s.id_user != null).ToList();//поиск о фамилии
         }
 
         private void add_user_Click(object sender, RoutedEventArgs e)

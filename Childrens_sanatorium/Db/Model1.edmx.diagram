@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7b3e278ef32d4cb2b08e24b28871ff53" Name="Diagram1">
-        <EntityTypeShape EntityType="Childrens_sanatoriumModel.Branches" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Childrens_sanatoriumModel.Children" Width="1.5" PointX="7.5" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Childrens_sanatoriumModel.Diagnosis" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Childrens_sanatoriumModel.Employee" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="Childrens_sanatoriumModel.Position" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Childrens_sanatoriumModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="Childrens_sanatoriumModel.user" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Childrens_sanatoriumModel.Ward" Width="1.5" PointX="7.5" PointY="8.375" IsExpanded="true" />
+      <Diagram DiagramId="7b3e278ef32d4cb2b08e24b28871ff53" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="Childrens_sanatoriumModel.Branches" Width="1.5" PointX="8.625" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Childrens_sanatoriumModel.Children" Width="1.5" PointX="12.375" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Childrens_sanatoriumModel.Diagnosis" Width="1.5" PointX="8.625" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Childrens_sanatoriumModel.Employee" Width="1.5" PointX="6.375" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Childrens_sanatoriumModel.Position" Width="1.5" PointX="4.125" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Childrens_sanatoriumModel.sysdiagrams" Width="1.5" PointX="4.125" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Childrens_sanatoriumModel.user" Width="1.5" PointX="4.125" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Childrens_sanatoriumModel.Ward" Width="1.5" PointX="10.375" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="Childrens_sanatoriumModel.FK_Branches_Employee" ManuallyRouted="false" />
         <AssociationConnector Association="Childrens_sanatoriumModel.FK_Children_Branches" ManuallyRouted="false" />
         <AssociationConnector Association="Childrens_sanatoriumModel.FK_Ward_Branches" ManuallyRouted="false" />
